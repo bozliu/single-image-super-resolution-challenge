@@ -1,0 +1,71 @@
+experiment:
+  name: long_score
+
+run_dirs:
+  results_dir: results
+  checkpoints_dir: checkpoints
+  outputs_dir: Generated upscaled images from testset
+  report_dir: report
+
+data:
+  scale: 4
+  train_hr_dir: data/Mini-DIV2K/Train/HR
+  train_lr_dir: data/Mini-DIV2K/Train/LR_x4
+  val_hr_dir: data/Mini-DIV2K/Val/HR
+  val_lr_dir: data/Mini-DIV2K/Val/LR_x4
+  test_lr_dir: data/test/LR
+  patch_size: 128
+  train_batch_size: 8
+  val_batch_size: 1
+  # Cache decoded images in RAM to avoid re-reading large 2K PNGs every iteration.
+  # Use num_workers=0 so the cache stays in the main process (no duplication).
+  cache_images: true
+  num_workers: 0
+  pin_memory: false
+
+augmentation:
+  hflip_prob: 0.5
+  vflip_prob: 0.5
+  rot90_prob: 0.5
+  rgb_perm_prob: 0.35
+  cutblur_prob: 0.35
+  cutblur_alpha: 0.45
+
+model:
+  scale: 4
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_block: 20
+
+loss:
+  charbonnier_eps: 0.001
+
+optim:
+  lr: 0.0002
+  betas: [0.9, 0.99]
+  weight_decay: 0.0
+  grad_clip: 1.0
+
+schedule:
+  total_iters: 80000
+  eta_min: 0.0000001
+  # Full validation on 80 images is expensive on MPS; validate less frequently to
+  # keep the "long" run practical on a local M3 Pro.
+  val_interval: 10000
+  val_max_images: 80
+  save_interval: 5000
+  log_interval: 100
+  ema_decay: 0.999
+
+metrics:
+  crop_border: 4
+
+inference:
+  tile: 0
+  tile_pad: 16
+
+runtime:
+  device: auto
+  seed: 3407
+  deterministic: false

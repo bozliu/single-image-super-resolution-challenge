@@ -1,0 +1,32 @@
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+.env
+.env.*
+
+# Datasets / user-provided files (not tracked)
+data/Mini-DIV2K/
+data/test/
+!data/README.md
+
+# Generated artifacts (not tracked)
+results/
+checkpoints/
+Generated upscaled images from testset/
+runs/
+logs/
+tb_logs/
+wandb/
+
+# Optional generated report artifacts
+project2_report.pdf
+report/project2_report.pdf
+report/loss_curve.png
+report/report_header.tex
+
+*.zip
