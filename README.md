@@ -93,6 +93,12 @@ pip install -r requirements.txt
 
 Follow `data/README.md` to place the dataset under `data/`.
 
+### Dataset Download Links
+
+- challenge package (train/val/test): [Dropbox dataset package](https://www.dropbox.com/scl/fo/f88w72e55xuy5ofjup77b/AGVFqg57pq_AmZwzbg5_RnQ?rlkey=lyph59zpbdkohlqx0i0zg9suc&dl=0)
+- official reference: [DIV2K official site](https://data.vision.ee.ethz.ch/cvl/DIV2K/)
+- local placement details: see `data/README.md` (train: `data/Mini-DIV2K/Train/{HR,LR_x4}`, val: `data/Mini-DIV2K/Val/{HR,LR_x4}`, test LR: `data/test/LR`)
+
 ### Train / Eval / Inference
 
 Quick smoke run:
