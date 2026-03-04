@@ -11,6 +11,7 @@ The project is designed around the Mini-DIV2K setting (500 train pairs + 80 vali
 ## Related Article
 
 - [Single Image Super-Resolution Challenge (Medium)](https://bozliu.medium.com/single-image-super-resolution-challenge-6f4835e5a156)
+![Single Image Super-Resolution Challenge](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*rmQjKd4uETJtwYMRTDzmrg.png)
 
 ## 1. Challenge Description
 
